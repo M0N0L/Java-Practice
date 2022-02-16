@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class MyList<E> implements  Iterable<E>{
+    private List<E> list = new ArrayList<>();
+
+    void add(E e){
+        list.add(e);
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new MyIterator(list.size());
+    }
+
+    public class MyIterator implements Iterator<E>{
+        private int index;
+        MyIterator(int index){
+            this.index = index;
+        }
+        @Override
+        public boolean hasNext() {
+            return index > 0;
+        }
+
+        @Override
+        public E next() {
+            index--;
+            return MyList.this.list.get(index);
+        }
+    }
+}
