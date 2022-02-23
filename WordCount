@@ -20,7 +20,7 @@ public class Main {
             if((char)tmp == '\n'){
                 lineCount++;
             }
-            if((char)tmp == '\n' || (char)tmp == ' ' || (char)tmp == '\t'){
+            if((char)tmp == '\n' || (char)tmp == ' '){
                 stat = 0;
             }
             else if(stat == 0){
@@ -29,6 +29,7 @@ public class Main {
             }
         }
         lineCount++;
+        charCount -= 2 * (lineCount - 1);//去除换行符\n对个数的影响
         System.out.println("字符数 =" + charCount + " 单词数 = " + wordCount + " 行数 =" + lineCount);
     }
 }
