@@ -1,3 +1,6 @@
+/**
+* 利用I/O 文件字节流，实现对一个文本文档的计数
+*/
 import java.io.*;
 
 public class Main {
@@ -17,11 +20,11 @@ public class Main {
         int stat = 0;
         while((tmp = inputStream.read()) != -1){
             charCount++;
-            if((char)tmp == '\n'){
+            if((char)tmp == '\n'){ //如果是换行，换行数增加
                 lineCount++;
             }
-            if((char)tmp == '\n' || (char)tmp == ' '){
-                stat = 0;
+            if((char)tmp == '\n' || (char)tmp == ' '){ //如果是空格或换行，表示单词结束
+                stat = 0;//防止出现连续空格或是空格接换行
             }
             else if(stat == 0){
                 stat = 1;
@@ -30,6 +33,6 @@ public class Main {
         }
         lineCount++;
         charCount -= 2 * (lineCount - 1);//去除换行符\n对个数的影响
-        System.out.println("字符数 =" + charCount + " 单词数 = " + wordCount + " 行数 =" + lineCount);
+        System.out.println("字符数 =" + charCount + " 单词数 = " + wordCount + " 行数 =" + lineCount);//打印结果
     }
 }
