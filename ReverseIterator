@@ -1,3 +1,6 @@
+/**
+*自己实现一个反向迭代器，无论何时，这个迭代器总是倒序迭代
+*/
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
