@@ -1,0 +1,34 @@
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        try(FileInputStream inputStream = new FileInputStream("test.txt")){
+            wc(inputStream);
+        }catch(IOException  e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void wc(FileInputStream inputStream) throws IOException {
+        int tmp = 0;
+        int wordCount = 0;
+        int lineCount = 0;
+        int charCount = 0;
+        int stat = 0;
+        while((tmp = inputStream.read()) != -1){
+            charCount++;
+            if((char)tmp == '\n'){
+                lineCount++;
+            }
+            if((char)tmp == '\n' || (char)tmp == ' ' || (char)tmp == '\t'){
+                stat = 0;
+            }
+            else if(stat == 0){
+                stat = 1;
+                wordCount++;
+            }
+        }
+        lineCount++;
+        System.out.println("字符数 =" + charCount + " 单词数 = " + wordCount + " 行数 =" + lineCount);
+    }
+}
