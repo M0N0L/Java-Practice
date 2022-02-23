@@ -1,6 +1,7 @@
-//*
-*根据链表的迭代器遍历一个列表，删除其中2的倍数和3的倍数，但又保留6的倍数。
-*//
+/**
+ *根据链表的迭代器遍历一个列表，删除其中2的倍数和3的倍数，但又保留6的倍数。
+ */
+ 
 import java.util.LinkedList;
 import java.util.ListIterator;
 
